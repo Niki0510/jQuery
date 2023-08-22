@@ -1,0 +1,144 @@
+//jquery Syntax
+-- $('selector').action()
+********************************************************************************
+//selectors
+
+--html---
+<button id="primarybtn" >Primary</button>
+    <button class="secondarybtn">Secondary</button>
+    <button class="secondarybtn">Success</button>
+
+-- 1.element - 
+  $('p').on({
+       mouseenter : function(){console.log("you have mouse entered",this)},
+       mouseleave : function(){console.log("you have mouse leave",this)},       
+    })
+
+
+   2.ID - 
+    $('#primarybtn').on({
+        click : function(){
+            console.log("you have clicked",this)
+        },
+        dblclick : function(){
+            console.log("you have dblclicked",this)
+        },
+        mouseover : function(){console.log("you have mouse over",this)},     
+    })
+
+3.Class Selector
+    $('.secondarybtn').on({  
+        mousedown : function(){console.log("you have mouse clicked any button on mouse",this)},     
+        mouseup : function(){console.log("you have mouse released button on mouse",this)},     
+        mousemove : function(){console.log("you have mouse moved",this)},     
+        mouseout : function(){console.log("you have mouse out",this)},     
+    })
+
+****************************************************
+//other selectors
+--
+//selects whole html page
+        $('*').on({
+            mouseenter : function(){console.log("you have mouse entered",this)},
+            mouseleave : function(){console.log("you have mouse leave",this)},       
+         })
+    //index starts from 0
+    $('p:even').on({
+        mouseenter : function(){console.log("you have mouse entered",this)},
+        mouseleave : function(){console.log("you have mouse leave",this)},       
+     })
+****************************************************************************************
+//Events In Jquery
+--> Mouse events = click, dblclick, mouseenter, mouseleave
+    KeyboardEvent = keypress, keydown, MediaKeyStatusMap
+    form events = submit, change, focus, blur
+    document/window events = load, resize, scroll, unload
+************************************************************************
+
+//On Method
+---HTML---
+<p>THIS is P tag </p>
+    <p>THIS is P2 tag </p>
+    <p>THIS is P3 tag </p>
+    <p>THIS is P4 tag </p>
+
+----JS---
+
+//single
+$('p').on("click",function(){})
+
+//multiple
+$('p').on({
+	click : function(){},
+	dblclick:function(){}...
+})
+
+****************************************************************************
+
+//Animations
+
+// $('#wiki').hide(3000); //hides the text
+    // $('#wiki').show(3000); //brings the text
+
+    $('#act-btn').on({
+        click: function () {
+            //fade
+            // $('#wiki').fadeIn("slow")
+            // $('#wiki').fadeOut("slow")
+            // $('#wiki').fadeTo(3000,0.4)
+            // $('#wiki').fadeToggle(3000)
+            // $('#wiki').toggle(1000)
+
+            //slide
+            //$('#wiki').slideDown("slow")
+            // $('#wiki').slideUp("slow")
+            //$('#wiki').slideToggle("slow")
+
+            //animation
+            $('#wiki').animate({
+                opacity: '0.5',
+                left: '50px',
+                color: 'red',
+                width: '250px'
+            })
+        }
+    })
+
+****************************************************************
+//html Manupulations on FORM
+HTML - <form>
+        <input type="text" id="inp"/>
+        <br><br><br>
+        <span id="spn">jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
+             With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.</span>
+    </form>
+
+JS-     $('#inp').val("I am queen"); //adds value
+        $('#spn').empty(); // works on span tag
+        $('#inp').remove(); // remove from document
+        $('#spn').text("I am a woman"); // removes og text and add this
+        $('p').html("hi"); // html works on tag 
+
+	**keyboard EVENTS**
+$('#inp').on({
+            keypress : function(){console.log("keypressed")},
+            keyup : function(){console.log("keyup")},
+            keydown : function(){console.log("keydown")},            
+            focus : function(){console.log("focussed")},   //when entered in input          
+            blur : function(){console.log("blurred")},     //when clicked outside       
+            change : function(){console.log("changed")},   //when changed something and clicked outside        
+        })
+******************************************************************
+//Ajax using Jquery
+
+//get
+        // $.get("https://code.jquery.com/jquery-3.3.1.js", function (data, status) {
+        //     alert(status);
+        // })
+
+//post
+        // $.post("https://code.jquery.com/jquery-3.3.1.js", 
+        // { name: "akash", age: 26, gender: 'male' }, 
+        // function (data, status) { 
+        //     console.log(alert(status)) 
+        // })
